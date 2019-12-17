@@ -4,7 +4,8 @@ import { Background } from "./js/runtime/Background.js";
 import { Director } from "./js/Director.js";
 import { Land } from "./js/runtime/Land.js";
 import { Birds } from "./js/Player/Birds.js";
-
+import { Score } from "./js/Player/score.js";
+import { StartButton } from "./js/Player/StartVButton.js";
 export class Main{
     constructor(){
         console.log("Main执行了");
@@ -46,6 +47,9 @@ export class Main{
         .put('land',new Land())
         .put('pipes',[])
         .put('birds',new Birds())
+        .put('score',new Score())
+        .put('startButton',new StartButton())
+
         this.director.createPipes();
         this.director.run();
         this.addClick();
@@ -53,7 +57,7 @@ export class Main{
     }
 
     addClick(){
-        // this.canvas.addEventListener('touchstart',e=>{
+        //this.canvas.addEventListener('touchstart',e=>{
           wx.onTouchStart(e=>{
 
           
@@ -68,6 +72,7 @@ export class Main{
                 this.director.birdsEvent();
             }
           });
+        //});
         
     }
 }
